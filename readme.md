@@ -1,5 +1,5 @@
 
-(25`NeurIPS)MemEIC's code and CCKEB dataset will be released.(~01.2026)
+(25`NeurIPS)MemEIC's code will be released.(~01.2026)
 
 
 [![arXiv](https://img.shields.io/badge/arXiv-2510.25798-b31b1b.svg)](https://arxiv.org/abs/2510.25798)
