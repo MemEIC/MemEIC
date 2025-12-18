@@ -1,4 +1,8 @@
 
+<p align="center">
+  <img src="logo.png" alt="MemEIC Logo" width="600">
+</p>
+
 (25`NeurIPS)MemEIC's code will be released.(~01.2026)
 
 
