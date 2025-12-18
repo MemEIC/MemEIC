@@ -1,4 +1,4 @@
-![MemEIC Logo](assets/image_1.png)
+![MemEIC Logo](logo.png)
 (25`NeurIPS)MemEIC's code will be released.(~01.2026)
 
 
