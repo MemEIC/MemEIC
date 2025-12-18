@@ -1,5 +1,4 @@
 
-
 <p align="center">
   <img src="logo.png" alt="MemEIC Logo" width="600">
 </p>
