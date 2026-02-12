@@ -1,0 +1,34 @@
+.idea
+.vscode
+.history
+**/__pycache__
+
+data
+examples
+logs
+results
+openai
+hugging_cache
+*.ttf
+tmp*
+datasets
+
+KE/models
+
+# Staging folder
+staging/
+
+# HuggingFace repo (separate dataset repo)
+hf_repo_git/
+
+# Images (logo.png 제외)
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+*.png
+!logo.png
+comparison_results.md
+focused_comparison.md
+focused_comparison.pdf

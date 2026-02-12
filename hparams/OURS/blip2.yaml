@@ -1,0 +1,101 @@
+# Model
+device: 2
+
+name: facebook/opt-2.7b
+model_name: blip2
+model_class: Blip2OPT
+tokenizer_class: GPT2Tokenizer
+tokenizer_name: facebook/opt-2.7b
+cls_name: distilbert/distilbert-base-cased
+cls_class: AutoModel 
+cls_image_name: openai/clip-vit-large-patch14-336
+cls_image_class: CLIPVisionModel
+cls_image_proc_class: CLIPImageProcessor
+inner_params: []
+
+# Train Stage (1, 2)
+stage: 2
+
+# For OURS
+query_generate: False
+query_prompt_dir: datasets/prompt
+train_adapter: True
+only_text: False # 이미지는 활용안하고 텍스트만 사용했을때의 결과
+
+# For LORA
+use_lora: True
+lora_r: 8
+lora_alpha: 32
+lora_dropout: 0.1
+lora_target_modules:
+  - fc1
+  - fc2
+for_eval: True
+adapter_path: /home/9115jin/project/multimodaledit/VLKEB/results/results_sequencial/blip2/composition/two_lora_connect_attention_rag_70
+
+# Method
+alg: OURS
+alg_name: OURS
+num_steps: 10
+lr: 1e-5
+edit_lr: 1e-2
+seed: 0
+lr_lr: 0.0
+cedit: 0.1
+iedit: 0.1
+cloc: 1.0
+cbase: 1.0
+cport: 0
+dropout: 0.0
+final_eval: True
+supervised: False
+train_base: False
+train_port: False
+no_grad_layers: null
+soft_weighting: False
+checkpoint_grad: False
+cross_attend: False
+cos: False
+freeze: null
+square: True
+bound_embeds: False
+use_all_negatives: False
+dist_heads: 1
+lora: null
+archive: results/stage1_blip2opt/models/OURS/blip2_250504_013610-step_35000.pt
+
+batch_size: 1
+model_save_pt: 5000
+edit_bs: 1
+silent: False
+#max_epochs: 1
+max_iters: 50000
+log_interval: 100
+val_interval: 5000
+early_stop_patience: 10000
+early_stop_key: "loss/total_edit_val"
+eval_only: False
+half: True
+save: False
+debug: False
+log_errors: False
+unlikelihood: True
+
+
+val_batch_size: 1
+accumulate_bs: 1
+val_steps: 500
+opt: Adam
+grad_clip: 100.
+
+# Output
+results_dir: ./results/stage3_blip2opt
+
+# Multimodal
+qformer_checkpoint: hugging_cache/blip2_pretrained_opt2.7b.pth
+qformer_name_or_path: google-bert/bert-base-uncased
+state_dict_file: hugging_cache/eva_vit_g.pth
+
+# image
+coco_image: datasets/VLKEB_images/mmkb_images
+rephrase_image: datasets/VLKEB_images/mmkb_images

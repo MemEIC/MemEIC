@@ -1,0 +1,66 @@
+# Model
+device: 2
+
+name: Vision-CAIR/vicuna-7b
+model_name: minigpt4
+model_class: Blip2OPT
+tokenizer_class: LlamaTokenizer
+tokenizer_name: Vision-CAIR/vicuna-7b
+inner_params:
+- llama_model.model.layers.27.mlp.down_proj.weight
+
+# Method
+alg: WISE
+alg_name: WISE
+objective_optimization: 'only_label'
+mask_ratio: 0.2
+act_margin: [5.0, 20.0, 10.0]
+alpha: 5.0    # act_margin[0]
+beta: 20.0  # act_margin[1]
+gamma: 10.0  # act_margin[2]
+act_ratio: 1e-9
+merge_freq: 1000
+retrieve: True
+replay: False
+save_freq: 500
+merge_alg: 'ties'
+norm_constraint: 1.0
+weights: 1.0
+densities: 0.53
+
+dropout: 0.0
+no_grad_layers: null
+train_base: False
+eval_only: True
+archive: null
+debug: False
+log_interval: 10
+
+# Output
+results_dir: ./results/stage3_1021/comp500_minigpt4_wise
+
+# Experiments
+edit_lr: 1e-1
+n_iter: 20 # 50, 70, 100 등..
+
+# Multimodal
+qformer_checkpoint: hugging_cache/blip2_pretrained_flant5xxl.pth
+qformer_name_or_path: google-bert/bert-base-uncased
+state_dict_file: hugging_cache/eva_vit_g.pth
+pretrained_ckpt: hugging_cache/pretrained_minigpt4_7b.pth
+hidden_act: silu
+
+# image
+coco_image: datasets/VLKEB_images/mmkb_images
+rephrase_image: datasets/VLKEB_images/mmkb_images
+
+# Defaults
+batch_size: 1
+val_batch_size: 1
+max_length: 30
+model_parallel: False
+use_chat_template: False
+
+# Save and Load
+save_path: None
+load_path: None

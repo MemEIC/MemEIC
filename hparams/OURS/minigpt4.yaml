@@ -1,0 +1,104 @@
+# Model
+device: 2
+
+name: Vision-CAIR/vicuna-7b
+model_name: minigpt4
+model_class: Blip2OPT
+tokenizer_class: LlamaTokenizer
+tokenizer_name: Vision-CAIR/vicuna-7b
+cls_name: distilbert/distilbert-base-cased
+cls_class: AutoModel 
+cls_image_name: openai/clip-vit-large-patch14-336
+cls_image_class: CLIPVisionModel
+cls_image_proc_class: CLIPImageProcessor
+inner_params: []
+
+# For OURS
+query_generate: False
+query_prompt_dir: datasets/prompt
+train_adapter: False
+only_text: False # 이미지는 활용안하고 텍스트만 사용했을때의 결과 
+
+# For LORA
+use_lora: True
+for_eval: True
+adapter_path: /adapter_path
+lora_edit_lr: 1e-4
+lora_r: 8
+lora_alpha: 32
+lora_dropout: 0.1
+lora_target_modules:
+  - down_proj
+  - up_proj
+
+# Train Stage
+stage: 2
+base_prompt_edit: False
+base_prompt_test: False
+
+# Method
+alg: OURS
+alg_name: OURS
+num_steps: 10
+lr: 1e-5
+edit_lr: 1e-2
+seed: 0
+lr_lr: 0.0
+cedit: 0.1
+iedit: 0.1
+cloc: 1.0
+cbase: 1.0
+cport: 0
+dropout: 0.0
+final_eval: True
+supervised: False
+train_base: False
+no_grad_layers: null
+soft_weighting: False
+checkpoint_grad: False
+cross_attend: False
+cos: False
+freeze: null
+square: True
+bound_embeds: False
+use_all_negatives: False
+dist_heads: 1
+lora: null
+archive: results/stage1_minigpt4/models/OURS/minigpt4_250506_190741-step_40000.pt
+
+batch_size: 1
+model_save_pt: 5000
+edit_bs: 1
+silent: False
+#max_epochs: 1
+max_iters: 50000
+log_interval: 1
+val_interval: 5000
+early_stop_patience: 5000
+early_stop_key: "loss/total_edit_val"
+eval_only: True
+half: False
+save: False
+debug: False
+log_errors: False
+unlikelihood: True
+
+
+val_batch_size: 1
+accumulate_bs: 1
+val_steps: 1000
+opt: Adam
+grad_clip: 100.
+
+# Output
+results_dir: ./results/stage3_1021/comp500_minigpt4_ours
+
+# Multimodal
+qformer_checkpoint: hugging_cache/blip2_pretrained_flant5xxl.pth
+qformer_name_or_path: google-bert/bert-base-uncased
+state_dict_file: hugging_cache/eva_vit_g.pth
+pretrained_ckpt: hugging_cache/pretrained_minigpt4_7b.pth
+
+# image
+coco_image: datasets/VLKEB_images/mmkb_images
+rephrase_image: datasets/VLKEB_images/mmkb_images

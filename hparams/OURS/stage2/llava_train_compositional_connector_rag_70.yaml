@@ -1,0 +1,87 @@
+# Model
+device: 4
+
+alg_name: "LORA"
+name: hugging_cache/llava-v1.5-7b
+model_name: llava
+model_class: LLaVA
+tokenizer_class: LlamaTokenizer
+tokenizer_name: hugging_cache/llava-v1.5-7b
+inner_params: []
+
+# For LORA
+use_lora: True
+one_lora: False
+for_eval: False
+adapter_path: null
+lora_r: 8
+lora_alpha: 32
+lora_dropout: 0.1
+lora_target_modules:
+  - down_proj
+  - up_proj
+lora_connector_type: "attention"
+
+# Method
+alg: lora
+num_steps: 10
+lr: 1e-6
+edit_lr: 1e-4
+lr_lr: 1e-4
+lr_scale: 1.0
+weight_decay: 0
+seed: 42
+cedit: 0.1
+iedit: 0.1
+cloc: 1.0
+cbase: 1.0
+dropout: 0.0
+train_base: False
+no_grad_layers: null
+one_sided: False
+n_hidden: 1
+hidden_dim: null
+init: id
+norm: True
+combine: True
+x_only: False
+delta_only: False
+act: relu
+rank: 1920
+mlp_class: IDMLP
+shared: True
+archive: null
+
+batch_size: 1
+model_save_pt: 5000
+silent: False
+max_iters: 50000
+log_interval: 100
+eval_log_interval: 1000
+val_interval: 5000
+early_stop_patience: 5000
+early_stop_key: "loss/total_edit_val"
+eval_only: True
+half: False
+save: False
+debug: False
+verbose: True
+
+val_batch_size: 1
+accumulate_bs: 2
+val_steps: 1000
+opt: Adam
+grad_clip: 100.
+
+# Output
+results_dir: ./results/stage2_llava_rag_70
+
+# Multimodal
+qformer_checkpoint: null
+qformer_name_or_path: null
+state_dict_file: null
+pretrained_ckpt: null
+
+# image
+coco_image: datasets/VLKEB_images/mmkb_images
+rephrase_image: datasets/VLKEB_images/mmkb_images
