@@ -101,7 +101,7 @@ datasets/
 ```
 
 
-## 🚀 Usage
+## 🚀 Usage (Test)
 
 ### Baselines
 
