@@ -15,11 +15,10 @@
   <a href="https://huggingface.co/datasets/MemEIC/CCKEB">
     <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-yellow" alt="Hugging Face Datasets">
   </a>
-  <a href="https://opensource.org/licenses/Apache-2.0">
-    <img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License">
+  <a href="https://opensource.org/licenses/BSD-3-Clause">
+    <img src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" alt="License">
   </a>
 </p>
-
 
 ## 📢 News
 - **[Oct 2025]** Paper accepted at NeurIPS 2025! 🎉
@@ -215,7 +214,7 @@ MemEIC/
 
 ## 📜 License
 
-This code & dataset are released under the **Apache License 2.0**.
+This code & dataset are released under the **BSD-3-Clause**.
 
 The CCKEB dataset is partially derived from the **VLKEB (NeurIPS'24)** dataset, which is licensed under the BSD 3-Clause License. All original copyright notices are preserved.
 
