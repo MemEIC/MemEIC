@@ -13,7 +13,8 @@ from torch.nn import CrossEntropyLoss
 from transformers.activations import ACT2FN
 from .merge import slerp, GTA, linear
 import torch.nn as nn
-import gc, re
+import gc
+import re
 
 merge_dict = {
     'slerp': slerp(),

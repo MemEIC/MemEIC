@@ -165,9 +165,9 @@ class MultimodalEditor:
         requests = self._prepare_requests(prompts, targets, image, rephrase_prompts, rephrase_image, locality_inputs,
                                           **kwargs)
 
-        if hasattr(self.hparams, 'batch_size') :
-               assert self.hparams.batch_size == 1 or \
-                      print(f'Single Edit, pls set the batch_size to 1....')
+        if hasattr(self.hparams, 'batch_size'):
+            assert self.hparams.batch_size == 1 or \
+                print(f'Single Edit, pls set the batch_size to 1....')
 
         # if not os.path.exists(RESULTS_DIR):
         #     os.mkdir(RESULTS_DIR)
@@ -310,9 +310,9 @@ class MultimodalEditor:
         requests = self._prepare_requests(prompts, targets, image, rephrase_prompts, rephrase_image, locality_inputs,
                                           **kwargs)
 
-        if hasattr(self.hparams, 'batch_size') :
-               assert self.hparams.batch_size == 1 or \
-                      print(f'Single Edit, pls set the batch_size to 1....')
+        if hasattr(self.hparams, 'batch_size'):
+            assert self.hparams.batch_size == 1 or \
+                print(f'Single Edit, pls set the batch_size to 1....')
 
         # if not os.path.exists(RESULTS_DIR):
         #     os.mkdir(RESULTS_DIR)

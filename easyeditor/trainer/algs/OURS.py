@@ -470,7 +470,7 @@ class OURS(EditableModel):
                     if connector_mode and it >= 2: # connector -> only 3 steps 
                         break
             else:
-                raise not NotImplementedError("Model not supported")
+                raise NotImplementedError("Model not supported")
     
         new_model = OURS(self.model, self.config, self.model_constructor, self.classifier, self.classifier_tok,
                         cache_inputs, cache_labels, cache_questions, cache_text_inputs, cache_text_labels, cache_text_questions,
@@ -636,13 +636,7 @@ class OURS(EditableModel):
         return ctxs, questions, answers
 
     def build_cls_cache_inputs(self):
-        # sep = self.classifier_tok.sep_token
-        # if hasattr(self.model, "name_or_path") and "gpt" in self.model.name_or_path.lower():
-            # The labels are include in the inputs for autoregressive models. Cut off the label for the classifier
-        # inputs = [cin.rsplit(" ", 1)[0] + sep for cin in self.cache_inputs]
-        # else:
-        #     inputs = [cin + sep + clab + sep for cin, clab in zip(self.cache_inputs, self.cache_labels)]
-        inputs = [ cin for cin, clabel in zip(self.cache_inputs, self.cache_labels)]
+        inputs = [cin for cin, clabel in zip(self.cache_inputs, self.cache_labels)]
         return inputs
 
     def build_cls_cache_image_inputs(self):

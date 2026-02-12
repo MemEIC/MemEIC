@@ -805,9 +805,9 @@ class MultimodalTrainer(BaseTrainer):
 
             # logging?
             if (log and val_step >= gap_num and (val_step) % self.config.log_interval == 0):
-                    self._inline_seq_log_CompositionalEdit( 
-                        val_step, averager.average(), start_time, steps
-                    )
+                self._inline_seq_log_CompositionalEdit(
+                    val_step, averager.average(), start_time, steps
+                )
             pbar.update(1)
 
             if len(val_data_store) == 0:
@@ -862,8 +862,8 @@ class MultimodalTrainer(BaseTrainer):
 
                 torch.cuda.empty_cache()
                 print("Complete Model Saving LoRA + Connector (Gap 0 with train_compositional_edit.json) ->", result_dir)
-            except:
-                print("Store Failed LoRA + Connector ")
+            except Exception as e:
+                print(f"Store Failed LoRA + Connector: {e}")
 
         with open(results_path, "w") as f:
             json.dump(
@@ -1037,8 +1037,8 @@ class MultimodalTrainer(BaseTrainer):
                 torch.cuda.empty_cache()
 
                 print("Complete Model Saving: LoRA + Connector (Gap 0 with train_compositional_edit.json) ->", result_dir)
-            except:
-                print("Failed Model Saving:LoRA + Connector")
+            except Exception as e:
+                print(f"Failed Model Saving: LoRA + Connector: {e}")
 
         with open(results_path, "w") as f:
             json.dump(
@@ -1500,8 +1500,8 @@ class MultimodalTrainer(BaseTrainer):
 
                     torch.cuda.empty_cache()
                     print('Saved LORA (gap0)')
-                except:
-                    print("Failed to save LORA")
+                except Exception as e:
+                    print(f"Failed to save LORA: {e}")
 
         with open(results_path, "w") as f:
             json.dump(

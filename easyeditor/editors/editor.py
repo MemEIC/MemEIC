@@ -152,9 +152,9 @@ class BaseEditor:
         requests = self._prepare_requests(prompts, target_new, ground_truth, rephrase_prompts,
                                           locality_inputs, portability_inputs, **kwargs)
 
-        if hasattr(self.hparams, 'batch_size') :
-               assert self.hparams.batch_size == 1 or \
-                      print(f'Single Edit, pls set the batch_size to 1....')
+        if hasattr(self.hparams, 'batch_size'):
+            assert self.hparams.batch_size == 1 or \
+                print(f'Single Edit, pls set the batch_size to 1....')
 
         # if not os.path.exists(RESULTS_DIR):
         #     os.mkdir(RESULTS_DIR)
@@ -566,9 +566,9 @@ class BaseEditor:
         if hasattr(self.hparams, 'batch_size'):  # For Singleton Editing, bs=1
             self.hparams.batch_size = 1
 
-        if hasattr(self.hparams, 'batch_size') :
-               assert self.hparams.batch_size == 1 or \
-                      print(f'Single Edit, pls set the batch_size to 1....')
+        if hasattr(self.hparams, 'batch_size'):
+            assert self.hparams.batch_size == 1 or \
+                print(f'Single Edit, pls set the batch_size to 1....')
 
         # if not os.path.exists(RESULTS_DIR):
         #     os.mkdir(RESULTS_DIR)

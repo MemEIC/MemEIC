@@ -64,7 +64,7 @@ class BaseTrainer:
                 elif 'minigpt4' in self.config.model_name.lower():
                     self.original_model = self.original_model.llama_model
                 else: # llava
-                     self.original_model = self.original_model.model
+                    self.original_model = self.original_model.model
 
         if self.config.model_parallel:
             self.config.device = self.model.model.device
