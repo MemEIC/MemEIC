@@ -23,8 +23,8 @@
 
 ## 📢 News
 - **[Oct 2025]** Paper accepted at NeurIPS 2025! 🎉
-  **[Dec 2025]** We release our dataset, CCKEB
-  **[Feb 2026]** We release our code for evaluation
+- **[Dec 2025]** We release our dataset, CCKEB
+- **[Feb 2026]** We release our code for evaluation
 
 
 
