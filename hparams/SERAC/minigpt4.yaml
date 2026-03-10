@@ -70,7 +70,7 @@ opt: Adam
 grad_clip: 100.
 
 # Output
-results_dir: ./results/stage3_1021/comp500_minigpt4_serac
+results_dir: ./results
 
 # Multimodal
 qformer_checkpoint: hugging_cache/blip2_pretrained_flant5xxl.pth

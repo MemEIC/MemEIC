@@ -9,6 +9,7 @@ logs
 results
 openai
 hugging_cache
+checkpoints
 *.ttf
 tmp*
 datasets

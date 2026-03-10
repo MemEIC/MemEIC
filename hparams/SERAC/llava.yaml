@@ -71,7 +71,7 @@ opt: Adam
 grad_clip: 100.
 
 # Output
-results_dir: ./results/models/stage3_1021/comp500_llava_serac
+results_dir: ./results
 
 # Multimodal
 qformer_checkpoint: null

@@ -15,6 +15,9 @@
   <a href="https://huggingface.co/datasets/MemEIC/CCKEB">
     <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-yellow" alt="Hugging Face Datasets">
   </a>
+  <a href="https://huggingface.co/MemEIC/MemEIC-checkpoints">
+    <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-orange" alt="Hugging Face Checkpoints">
+  </a>
   <a href="https://opensource.org/licenses/BSD-3-Clause">
     <img src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" alt="License">
   </a>
@@ -27,8 +30,8 @@
 - **[Oct 2025]** Paper accepted at NeurIPS 2025! 🎉
 - **[Dec 2025]** We release our dataset, CCKEB
 - **[Feb 2026]** We release our code for evaluation
+- **[Mar 2026]** We release Stage 1 (Mem-E) & Stage 2 (Mem-I) checkpoints
 
- ![Downloads](https://img.shields.io/badge/dynamic/json?url=https://huggingface.co/api/datasets/MemEIC/CCKEB&query=$.downloads&label=Downloads&color=blue)
 
 ## 📖 Overview
 
@@ -145,28 +148,60 @@ python test_compositional_edit.py test_MiniGPT4_WISE_comp
 
 ### MemEIC (Ours)
 
-#### Stage 1: Mem-E (External Memory) Training
+#### Stage 1: Mem-E (External Memory) Checkpoints
 
-> 🔧 **Coming Soon**: Pre-trained checkpoints will be released.
+Download the pre-trained Stage 1 checkpoints from HuggingFace: [MemEIC/MemEIC-checkpoints](https://huggingface.co/MemEIC/MemEIC-checkpoints)
 
-Stage 1 trains **Mem-E** - a hybrid external-internal editor that combines:
-- **Dual External Memory**: Cross-modal evidence retrieval for visual and textual knowledge
+| Model | Checkpoint |
+|-------|------------|
+| LLaVA-1.5-7B | `llava_stage1.pt` |
+| MiniGPT-4 | `minigpt4_stage1.pt` |
+
+Place the downloaded checkpoints in the `checkpoints/` directory:
 
 ```bash
-# Placeholder - checkpoints will be provided
-# Mem-E: trained on CCKEB training data
+mkdir -p checkpoints
+# Download from HuggingFace and place files here
 ```
 
-#### Stage 2: Knowledge Connector (KC) Training
+```
+MemEIC/
+└── checkpoints/
+    ├── llava_stage1.pt
+    ├── minigpt4_stage1.pt
+    ├── llava_stage2/
+    │   ├── connector/
+    │   ├── textual/
+    │   └── visual/
+    └── minigpt4_stage2/
+        ├── connector/
+        ├── textual/
+        └── visual/
+```
 
-The Knowledge Connector is an attention-based LoRA (`q_proj`, `k_proj`) that learns to compose visual and textual knowledge.
+#### Stage 2: Knowledge Connector (KC)
+
+The Knowledge Connector is an attention-based LoRA (`q_proj`, `k_proj`) that bridges visual and textual knowledge.
+
+**Option 1: Download pre-trained adapters**
+
+Download the pre-trained Stage 2 adapters from HuggingFace: [MemEIC/MemEIC-checkpoints](https://huggingface.co/MemEIC/MemEIC-checkpoints)
+
+| Model | Adapter Directory |
+|-------|-------------------|
+| LLaVA-1.5-7B | `llava_stage2/` |
+| MiniGPT-4 | `minigpt4_stage2/` |
+
+Each adapter directory contains `connector/`, `textual/`, and `visual/` sub-folders.
+
+**Option 2: Train from scratch**
 
 ```bash
 # LLaVA
 python test_compositional_edit.py train_LLaVA_OURS_stage2
 
 # MiniGPT4
-python test_compositional_edit.py train_MiniGPT4_OURS_stage2s
+python test_compositional_edit.py train_MiniGPT4_OURS_stage2
 ```
 
 #### Stage 3: MemEIC Evaluation

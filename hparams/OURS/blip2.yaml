@@ -20,7 +20,7 @@ stage: 2
 query_generate: False
 query_prompt_dir: datasets/prompt
 train_adapter: True
-only_text: False # 이미지는 활용안하고 텍스트만 사용했을때의 결과
+only_text: False
 
 # For LORA
 use_lora: True
@@ -31,7 +31,7 @@ lora_target_modules:
   - fc1
   - fc2
 for_eval: True
-adapter_path: /home/9115jin/project/multimodaledit/VLKEB/results/results_sequencial/blip2/composition/two_lora_connect_attention_rag_70
+adapter_path: null  # BLIP2 is experimental - checkpoints not provided
 
 # Method
 alg: OURS
@@ -62,7 +62,7 @@ bound_embeds: False
 use_all_negatives: False
 dist_heads: 1
 lora: null
-archive: results/stage1_blip2opt/models/OURS/blip2_250504_013610-step_35000.pt
+archive: null  # BLIP2 is experimental - checkpoints not provided
 
 batch_size: 1
 model_save_pt: 5000
@@ -89,7 +89,7 @@ opt: Adam
 grad_clip: 100.
 
 # Output
-results_dir: ./results/stage3_blip2opt
+results_dir: ./results
 
 # Multimodal
 qformer_checkpoint: hugging_cache/blip2_pretrained_opt2.7b.pth
