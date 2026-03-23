@@ -21,9 +21,6 @@
   <a href="https://opensource.org/licenses/BSD-3-Clause">
     <img src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" alt="License">
   </a>
-  <a href="https://huggingface.co/datasets/MemEIC/CCKEB">
-    <img src="https://img.shields.io/badge/dynamic/json?url=https://huggingface.co/api/datasets/MemEIC/CCKEB&query=$.downloads&label=Downloads&color=green" alt="Downloads">
-  </a>
 </p>
 
 ## 📢 News
